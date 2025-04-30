@@ -378,6 +378,9 @@ class EDIBackend(models.Model):
             error = _get_exception_msg()
             state = "input_processed_error"
             res = f"Error: {error}"
+        except Exception:
+            error = _get_exception_msg()
+            state = "input_processed_error"
         else:
             error = None
             state = "input_processed"
