@@ -6,12 +6,12 @@
     "name": "Base GS1 EDI",
     "summary": """
         Base module for GS1 standard EDI exchange""",
-    "version": "13.0.1.0.0",
+    "version": "19.0.1.0.0",
     "development_status": "Alpha",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/edi-framework",
     "author": "ACSONE,Odoo Community Association (OCA)",
-    "depends": ["component", "edi_exchange_template", "edi_xml", "uom"],
+    "depends": ["edi_core_oca", "uom"],
     "external_dependencies": {"python": ["xmlschema", "xmlunittest"]},
     "data": [
         "security/gs1_backend_acl.xml",
@@ -19,7 +19,6 @@
         "data/ack_in_exchange_type_data.xml",
         "data/ack_out_exchange_type_data.xml",
         "data/business_header_qweb_template.xml",
-        "data/business_header_output_template.xml",
         "data/contact_details_qweb_template.xml",
         "views/res_partner.xml",
         "views/edi_backend.xml",
