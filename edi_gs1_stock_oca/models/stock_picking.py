@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import _, api, models
+from odoo import api, models
 
 _logger = logging.getLogger(__name__)
 
@@ -25,7 +25,7 @@ class StockPicking(models.Model):
         # TODO: how do we handle this?
         # We could have a wizard of some special fields to set by record
         # which backend to use.
-        return self.env.ref("edi_gs1.edi_backend_gs1_default")
+        return self.env.ref("edi_gs1_oca.edi_backend_gs1_default")
 
     def _common_instruction(self, send, type_code):
         delivery = self
@@ -79,5 +79,5 @@ class StockPicking(models.Model):
         if exchange_records:
             exchange_records.action_exchange_stop()
         for exchange_record in exchange_records:
-            exchange_record.message_post(body=_("Related picking deleted"))
+            exchange_record.message_post(body=self.env._("Related picking deleted"))
         return result
